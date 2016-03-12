@@ -171,6 +171,9 @@ function setup_callbacks (id, page) {
     var new_id = setup_page(page);
     callback_stack.push({ 'page_id': id, 'callback': 'onPageCreated', 'args': [ new_id ] });
   };
+  page.onInitialized = function(){
+    page.injectJs('./mimics.js');
+  };
 }
 
 function setup_page (page) {
